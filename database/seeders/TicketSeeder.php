@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Ticket;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class TicketSeeder extends Seeder
 {
     public function run()
     {
-        User::factory()->times(3)->create();
+        Ticket::factory()->times(10)->create();
     }
 }

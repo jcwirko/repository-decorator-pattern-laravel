@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Car;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class CarSeeder extends Seeder
 {
     public function run()
     {
-        User::factory()->times(3)->create();
+        Car::factory()->times(3)->create();
     }
 }
