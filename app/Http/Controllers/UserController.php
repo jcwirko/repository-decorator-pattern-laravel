@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -42,5 +43,20 @@ class UserController extends Controller
         $user->delete();
 
         return response()->json($user);
+    }
+
+    public function getWithSameFirstAndLastName()
+    {
+        $name = request()->get('name');
+
+        $first = DB::table('users')
+            ->where('first_name', $name);
+
+        $users = DB::table('users')
+            ->where('last_name', $name)
+            ->union($first)
+            ->get();
+
+        return response()->json($users);
     }
 }
