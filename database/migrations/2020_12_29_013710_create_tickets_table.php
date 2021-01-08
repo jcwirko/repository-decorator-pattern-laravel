@@ -17,7 +17,8 @@ class CreateTicketsTable extends Migration
 
             $table->foreign('car_id')
                 ->references('id')
-                ->on('cars');
+                ->on('cars')
+                ->onDelete('cascade');;
 
             $table->timestamps();
         });

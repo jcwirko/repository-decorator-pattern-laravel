@@ -3,13 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Repositories\TicketRepositories;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
+    private $ticketRepositories;
+
+    public function __construct(TicketRepositories $ticketRepositories)
+    {
+        $this->ticketRepositories = $ticketRepositories;
+    }
+
     public function index()
     {
-        $tickets = Ticket::all();
+        $tickets = $this->ticketRepositories->all();
 
         return response()->json($tickets);
     }

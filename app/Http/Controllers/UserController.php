@@ -3,28 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Repositories\UserRepositories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    private $userRepositories;
+
+    public function __construct(UserRepositories $userRepositories)
+    {
+        $this->userRepositories = $userRepositories;
+    }
+
     public function index()
     {
-        $users = User::with(['cars.tickets'])->get();
+        $users = $this->userRepositories->all();
 
         return response()->json($users);
     }
 
     public function show(int $id)
     {
-        $user = User::find($id);
+        $user = $this->userRepositories->get($id);
 
         return response()->json($user);
     }
 
     public function store(Request $request)
     {
-        $user = User::create($request->all());
+        $user = new User($request->all());
+
+        $user = $this->userRepositories->save($user);
 
         return response()->json($user);
     }
@@ -32,15 +42,14 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->fill($request->all());
-        $user->save();
+        $user = $this->userRepositories->save($user);
 
         return response()->json($user);
     }
 
-    public function destroy(int $id)
+    public function destroy(User $user)
     {
-        $user = User::find($id);
-        $user->delete();
+        $user = $this->userRepositories->delete($user);
 
         return response()->json($user);
     }
@@ -49,13 +58,13 @@ class UserController extends Controller
     {
         $name = request()->get('name');
 
-        $first = DB::table('users')
-            ->where('first_name', $name);
+        /*
+         * Logica de negocio
+         * ...
+         * ...
+         */
 
-        $users = DB::table('users')
-            ->where('last_name', $name)
-            ->union($first)
-            ->get();
+        $users = $this->userRepositories->getWithSameFirstAndLastName($name);
 
         return response()->json($users);
     }
