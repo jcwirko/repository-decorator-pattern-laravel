@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Repositories\UserRepositories;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -33,7 +32,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new User($request->all());
-
         $user = $this->userRepositories->save($user);
 
         return response()->json($user);
