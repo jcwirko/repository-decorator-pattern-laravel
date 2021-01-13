@@ -9,9 +9,13 @@ Es el repositorio que tiene el ejemplo práctico del video realizado en youtube
 
 ### Instalación
 
-* Clonar los repositorios `git clone --recursive git@gitlab.com:juanblariza/finaldraw.git`
-* Sobre el repositorio `Final Draw` ejecutar por única vez `sh setup-dev.sh` para instalar 
-las depencencias y permisos neceserios de la app 
+* Clonar el proyecto desde el repositorio `https://github.com/jcwirko/repository-decorator-pattern-laravel`
+    1. HTTP: `git clone https://github.com/jcwirko/repository-decorator-pattern-laravel.git`
+    2. SSH:  `git clone git@github.com:jcwirko/repository-decorator-pattern-laravel.git`
+* Sobre la raíz del proyecto ejecutar `docker-compose build` y luego `docker-compose up`
+* Importar en el postman la colección que se encuentra dentro de la carpeta `postman` sobre la raíz del proyecto
+
+* El puerto está en el `5000` por lo que las urls del postman son: `http://localhost:5000/api/users`
 
 
 
