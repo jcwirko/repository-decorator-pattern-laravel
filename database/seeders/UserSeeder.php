@@ -23,6 +23,6 @@ class UserSeeder extends Seeder
             'email' => 'diegoalonso@gmail.com'
         ]);
 
-        User::factory()->times(3)->create();
+        User::factory()->times(10000)->create();
     }
 }

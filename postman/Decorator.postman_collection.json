@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "7d51f9c6-91d3-43c4-a62b-fb258dda5e49",
-		"name": "Repository",
+		"name": "Decorator",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -45,7 +45,7 @@
 							"urlencoded": [
 								{
 									"key": "first_name",
-									"value": "Agustin",
+									"value": "Pedro",
 									"type": "text"
 								},
 								{
@@ -95,83 +95,6 @@
 								"api",
 								"users",
 								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "same first and last name",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded",
-								"type": "text"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": []
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/users/with-same-first-and-last-name?name=diego",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"users",
-								"with-same-first-and-last-name"
-							],
-							"query": [
-								{
-									"key": "name",
-									"value": "diego"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Ticket",
-			"item": [
-				{
-					"name": "get all",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": []
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/tickets",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"tickets"
 							]
 						}
 					},
