@@ -3,8 +3,6 @@ version: "3.7"
 services:
 ### PHP Container #########################################
   decorator:
-    container_name: app_decorator
-    hostname: decorator
     build:
       context: .
       dockerfile: Dockerfile
@@ -18,8 +16,6 @@ services:
 
   ### NGINX Container #########################################
   nginx:
-    container_name: app_nginx
-    hostname: nginx
     image: nginx:1.17
     restart: unless-stopped
     depends_on:
@@ -32,7 +28,6 @@ services:
 
 ### POSTGRESS Container #########################################
   decoratordb:
-    container_name: app_decoratordb
     image: postgres:11
     restart: always
     environment:
@@ -45,7 +40,6 @@ services:
 
 ### Redis Container #########################################
   decoratorredis:
-    container_name: app_decoratorredis
     hostname: redis
     image: redis:5.0
     expose:
