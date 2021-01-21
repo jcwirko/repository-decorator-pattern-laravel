@@ -23,6 +23,10 @@ Es el repositorio que tiene el ejemplo práctico del patrón repository y decora
 * Ya que el setup-local.sh se ejecuta una vez,  tenemos otro archivo que es para iniciar el proyecto siempre que se 
   necesite sin hacer el build, entonces ejecutar `sh start-local.sh`
 
+### Ramas
+
+* Para ver el código del patrón repositorio `git checkout repository`
+* Para ver el código del patrón decorador `git checkout decorator`
 
 
 
