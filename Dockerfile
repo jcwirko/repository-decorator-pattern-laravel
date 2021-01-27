@@ -29,6 +29,9 @@ RUN apt-get install -y libpq-dev \
 # Configure php extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 
+RUN pecl install redis &&\
+    docker-php-ext-enable redis
+
 #Libraries required for Laravel
 RUN docker-php-ext-install \
     pdo_mysql \

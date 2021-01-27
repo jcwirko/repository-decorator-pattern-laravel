@@ -2,22 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Cache\UserCache;
 use App\Models\User;
 use App\Repositories\UserRepositories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     private $userRepositories;
 
-    public function __construct(UserRepositories $userRepositories)
+    public function __construct(UserCache $userRepositories)
     {
         $this->userRepositories = $userRepositories;
     }
 
     public function index()
     {
+        $tiempoInicial = (microtime(true) * 1000);
+
         $users = $this->userRepositories->all();
+
+        $tiempoFinal = (microtime(true) * 1000);
+
+        $total = $tiempoFinal - $tiempoInicial;
+
+        dump('Milisegundos: ', $total);
+        dump('Segundos:', $total / 1000);
 
         return response()->json($users);
     }
