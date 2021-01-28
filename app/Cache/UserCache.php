@@ -3,10 +3,11 @@
 namespace App\Cache;
 
 use App\Contracts\BaseRepositoryInterface;
+use App\Contracts\UserRepositoryInterface;
 use App\Repositories\UserRepositories;
 use Illuminate\Database\Eloquent\Model;
 
-class UserCache extends BaseCache implements BaseRepositoryInterface
+class UserCache extends BaseCache implements UserRepositoryInterface
 {
     public function __construct(UserRepositories $userRepositories)
     {
@@ -35,5 +36,10 @@ class UserCache extends BaseCache implements BaseRepositoryInterface
     {
         $this->cache::forget($this->key);
         $this->repository->delete($model);
+    }
+
+    public function getWithSameFirstAndLastName(string $name)
+    {
+        // TODO: Implement getWithSameFirstAndLastName() method.
     }
 }
