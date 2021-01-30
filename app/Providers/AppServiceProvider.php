@@ -2,27 +2,23 @@
 
 namespace App\Providers;
 
+use App\Cache\UserCache;
+use App\Contracts\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
+    protected $bindings = [
+        UserRepositoryInterface::class => UserCache::class
+    ];
+
     public function register()
     {
-        //
+
     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot()
     {
-        //
+
     }
 }

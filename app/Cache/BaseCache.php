@@ -13,7 +13,7 @@ abstract class BaseCache implements BaseRepositoryInterface
     protected $key;
     protected $cache;
 
-    public function __construct(BaseRepository $repository, string $key)
+    public function __construct(Object $repository, string $key)
     {
         $this->repository = $repository;
         $this->key = $key;
