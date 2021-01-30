@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cache\UserCache;
 use App\Models\User;
 use App\Repositories\UserRepositories;
 use Illuminate\Http\Request;
@@ -17,7 +18,13 @@ class UserController extends Controller
 
     public function index()
     {
+        $startTime = microtime(true);
+
         $users = $this->userRepositories->all();
+
+        $endTime = microtime(true);
+
+        dump($endTime-$startTime);
 
         return response()->json($users);
     }
