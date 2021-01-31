@@ -5,7 +5,7 @@ Es el repositorio que tiene el ejemplo práctico del patrón repository y decora
 
 * Patrón Repositorio : https://www.youtube.com/watch?v=xVl_mxjYB4I&feature=youtu.be
 
-* Patrón Decorador : https://www.youtube.com/watch?v=xVl_mxjYB4I&feature=youtu.be
+* Patrón Decorador : https://www.youtube.com/watch?v=bxPM5dmH5ac
 
 * Link del canal: https://www.youtube.com/channel/UCUzcO6Wh-xOgIidJdX7I9HA
 
